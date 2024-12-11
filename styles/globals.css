@@ -26,4 +26,61 @@ body {
   .joystick {
     display: none;
   }
+}
+
+/* D-pad Controls */
+.dpad-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: none; /* Hidden by default, shown on mobile */
+}
+
+.dpad {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.dpad-button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: rgba(36, 18, 54, 0.8); /* Ravens purple */
+  border: 2px solid white;
+  touch-action: manipulation;
+}
+
+.dpad-up {
+  top: 0;
+  left: 50px;
+  border-radius: 10px 10px 0 0;
+}
+
+.dpad-right {
+  right: 0;
+  top: 50px;
+  border-radius: 0 10px 10px 0;
+}
+
+.dpad-down {
+  bottom: 0;
+  left: 50px;
+  border-radius: 0 0 10px 10px;
+}
+
+.dpad-left {
+  left: 0;
+  top: 50px;
+  border-radius: 10px 0 0 10px;
+}
+
+/* Only show D-pad on mobile */
+@media (max-width: 768px) {
+  .dpad-container {
+    display: block;
+  }
 } 

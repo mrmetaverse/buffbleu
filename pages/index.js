@@ -214,7 +214,7 @@ export default function Home() {
           camera 
           look-controls
           wasd-controls
-          mobile-controls>
+          custom-controls>
           <a-entity oculus-touch-controls="hand: left"></a-entity>
           <a-entity oculus-touch-controls="hand: right"></a-entity>
         </a-entity>

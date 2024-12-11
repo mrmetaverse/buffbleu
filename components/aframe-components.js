@@ -77,4 +77,80 @@ if (typeof window !== 'undefined') {
       }
     }
   });
+
+  AFRAME.registerComponent('custom-controls', {
+    init: function () {
+      const camera = this.el;
+      let moveForward = false;
+      let moveBackward = false;
+      let moveLeft = false;
+      let moveRight = false;
+      const speed = 0.15;
+
+      // Create D-pad container
+      const dpadContainer = document.createElement('div');
+      dpadContainer.className = 'dpad-container';
+      
+      const dpad = document.createElement('div');
+      dpad.className = 'dpad';
+      
+      // Create D-pad buttons
+      const buttons = {
+        up: createButton('dpad-up'),
+        right: createButton('dpad-right'),
+        down: createButton('dpad-down'),
+        left: createButton('dpad-left')
+      };
+
+      function createButton(className) {
+        const button = document.createElement('div');
+        button.className = `dpad-button ${className}`;
+        dpad.appendChild(button);
+        return button;
+      }
+
+      // Add touch event listeners
+      buttons.up.addEventListener('touchstart', () => moveForward = true);
+      buttons.up.addEventListener('touchend', () => moveForward = false);
+      
+      buttons.down.addEventListener('touchstart', () => moveBackward = true);
+      buttons.down.addEventListener('touchend', () => moveBackward = false);
+      
+      buttons.left.addEventListener('touchstart', () => moveLeft = true);
+      buttons.left.addEventListener('touchend', () => moveLeft = false);
+      
+      buttons.right.addEventListener('touchstart', () => moveRight = true);
+      buttons.right.addEventListener('touchend', () => moveRight = false);
+
+      dpadContainer.appendChild(dpad);
+      document.body.appendChild(dpadContainer);
+
+      // Movement animation
+      this.tick = function() {
+        const rotation = camera.object3D.rotation;
+        const position = camera.object3D.position;
+        
+        // Calculate forward direction based on camera rotation
+        const direction = new THREE.Vector3();
+        camera.object3D.getWorldDirection(direction);
+        
+        if (moveForward) {
+          position.x += direction.x * speed;
+          position.z += direction.z * speed;
+        }
+        if (moveBackward) {
+          position.x -= direction.x * speed;
+          position.z -= direction.z * speed;
+        }
+        if (moveLeft) {
+          position.x += Math.cos(rotation.y + Math.PI/2) * speed;
+          position.z += Math.sin(rotation.y + Math.PI/2) * speed;
+        }
+        if (moveRight) {
+          position.x += Math.cos(rotation.y - Math.PI/2) * speed;
+          position.z += Math.sin(rotation.y - Math.PI/2) * speed;
+        }
+      };
+    }
+  });
 } 
