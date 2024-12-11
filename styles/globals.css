@@ -83,4 +83,15 @@ body {
 /* Remove any old joystick styles */
 .joystick {
   display: none;
+}
+
+/* Add these styles for the mobile D-pad */
+#mobile-dpad {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #mobile-dpad {
+    display: block;
+  }
 } 
