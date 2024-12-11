@@ -10,72 +10,67 @@ body {
   height: 100%;
 }
 
-.joystick {
-  position: fixed;
-  bottom: 50px;
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  z-index: 1000;
-}
-
-/* Only show joystick on mobile */
-@media (min-width: 768px) {
-  .joystick {
-    display: none;
-  }
-}
-
 /* D-pad Controls */
 .dpad-container {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 40px;
+  left: 40px;
   z-index: 1000;
   display: none; /* Hidden by default, shown on mobile */
 }
 
 .dpad {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   position: relative;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(36, 18, 54, 0.2); /* Ravens purple background */
   border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .dpad-button {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background: rgba(36, 18, 54, 0.8); /* Ravens purple */
   border: 2px solid white;
-  touch-action: manipulation;
+  touch-action: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  user-select: none;
 }
 
 .dpad-up {
   top: 0;
-  left: 50px;
+  left: 60px;
   border-radius: 10px 10px 0 0;
 }
 
 .dpad-right {
   right: 0;
-  top: 50px;
+  top: 60px;
   border-radius: 0 10px 10px 0;
 }
 
 .dpad-down {
   bottom: 0;
-  left: 50px;
+  left: 60px;
   border-radius: 0 0 10px 10px;
 }
 
 .dpad-left {
   left: 0;
-  top: 50px;
+  top: 60px;
   border-radius: 10px 0 0 10px;
+}
+
+/* Active state for buttons */
+.dpad-button:active {
+  background: rgba(255, 255, 255, 0.3);
+  color: rgba(36, 18, 54, 1);
 }
 
 /* Only show D-pad on mobile */
@@ -83,4 +78,9 @@ body {
   .dpad-container {
     display: block;
   }
+}
+
+/* Remove any old joystick styles */
+.joystick {
+  display: none;
 } 
