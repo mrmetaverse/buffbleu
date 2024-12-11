@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"pages/_app.js -> ../components/aframe-components\":{\"id\":\"pages/_app.js -> ../components/aframe-components\",\"files\":[\"static/chunks/components_aframe-components_js.js\"]},\"pages/_app.js -> aframe\":{\"id\":\"pages/_app.js -> aframe\",\"files\":[\"static/chunks/node_modules_aframe_dist_aframe-master_js.js\"]}}"

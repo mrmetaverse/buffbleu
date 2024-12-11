@@ -1,0 +1,29 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+#__next {
+  height: 100%;
+}
+
+.joystick {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+/* Only show joystick on mobile */
+@media (min-width: 768px) {
+  .joystick {
+    display: none;
+  }
+} 
