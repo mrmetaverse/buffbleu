@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import '../components/aframe-components';
 
 // Create a client-side only version of the scene
 const Scene = dynamic(() => import('../components/Scene'), {

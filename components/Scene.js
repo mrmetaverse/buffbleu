@@ -225,7 +225,7 @@ export default function Scene() {
       <a-entity 
         position="0 1.6 5"
         camera 
-        look-controls
+        look-controls="enabled: true; touchEnabled: true; mouseEnabled: true; magicWindowTrackingEnabled: false"
         wasd-controls
         mobile-controls>
       </a-entity>
