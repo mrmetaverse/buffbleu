@@ -225,11 +225,9 @@ export default function Scene() {
       <a-entity 
         position="0 1.6 5"
         camera 
-        look-controls="touchEnabled: true"
-        wasd-controls="enabled: true"
+        look-controls
+        wasd-controls
         mobile-controls>
-        <a-entity oculus-touch-controls="hand: left"></a-entity>
-        <a-entity oculus-touch-controls="hand: right"></a-entity>
       </a-entity>
     </a-scene>
   );
